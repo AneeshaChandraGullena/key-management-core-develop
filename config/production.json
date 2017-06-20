@@ -1,0 +1,70 @@
+{
+    "service": {
+        "name": {
+            "code": "key-management-core",
+            "short": "IBM Key Protect Core service",
+            "long": "IBM Key Protect Core service"
+        }
+    },
+    "proxy":{
+        "dev" : "http://10.140.132.213:3128",
+        "prestaging" : "http://10.140.21.119:3128",
+        "staging" : "http://10.143.132.173:3128",
+        "production" : "http://10.143.138.153:3128"
+    },
+    "csvDir": "kp-csv/",
+    "host": {
+        "name": "Key Management Core",
+        "ipv4_address": "127.0.0.1",
+        "port": 8942,
+        "tlsServerName": "www.keyprotect.stage1.ng.bluemix.net",
+        "certBasePath": "/kp_data",
+        "certPath": "/config/cert.pem",
+        "keyPath": "/config/key.pem"
+    },
+    "tracer": {
+        "zipkin": {
+            "httpEndpoint": "http://127.0.0.1:9411/api/v1/spans"
+        },
+        "zipkinKafka": {
+            "host": "127.0.0.1:9092"
+        }
+    },
+    "dbService": {
+        "name": "Key Manager db service",
+        "ipv4_address": "127.0.0.1",
+        "port": 8985
+    },
+
+    "openstack": {
+        "barbican": {
+            "url": "http://localhost:9311"
+        }
+    },
+    "database":{
+      "credentialsLocation" : "/opt/keyprotect/key-management-api/config/keyprotect_db.json",
+      "table" : "keyprotect_ids"
+    },
+    "timeouts":{
+      "readTimeout" : 3,
+      "writeTimeout" : 60,
+      "acceptableWriteTimeout" : 6,
+      "grpcTimeout" : 30
+    },
+    "feature_toggles":{
+      "cassandra" : false,
+      "enableTLS": false
+    },
+    "version": {
+        "semver": "",
+        "commit": "",
+        "runtime": ""
+    },
+    "certs": {
+        "base_path": "/kp_data/config",
+        "ca_cert_pem": "ca-cert.pem",
+        "client_cert_pem": "client-cert.pem",
+        "client_key_pem": "client-key.pem",
+        "server_name": "MariaDB server"
+     }
+}

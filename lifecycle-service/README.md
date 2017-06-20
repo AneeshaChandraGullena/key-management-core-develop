@@ -1,0 +1,3 @@
+# lifecycle-service
+
+This `Lifecycle` service will run on the Lifecycle server. It handles all of CRUD lifecycle of secrets. It is also an abstraction over our key generation mechanism. The idea for this service is to have a flexible way to create, read, update and delete keys/secrets that is independent of the backend used to generate and store them. It is able to put together secrets so that users can consume them. If a storage backend or generation backend is changed in any way, such as up/downgraded, removed or deactivated, this service is will be able to handle those without any of the consumers of the service knowing.
